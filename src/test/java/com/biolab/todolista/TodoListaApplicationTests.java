@@ -1,0 +1,13 @@
+package com.biolab.todolista;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TodoListaApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
