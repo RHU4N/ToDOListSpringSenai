@@ -17,8 +17,8 @@ public class TaskRes {
     private String taskDescription;
     private Priority priority;
     private Boolean isChecked;
-    private Category Category;
-    private User User;
+    private String category;
+    private Long idUser;
 
 
 }

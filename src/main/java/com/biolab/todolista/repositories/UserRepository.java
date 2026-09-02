@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+//Repository com inversão de dependancias
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    //função que retorna um boleano para emular login
     boolean existsByUsernameAndPassword(String username, String password);
 }
