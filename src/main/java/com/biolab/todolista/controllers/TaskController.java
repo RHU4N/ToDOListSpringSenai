@@ -37,6 +37,12 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(taskService.getTaskById(id));
     }
 
+    //puxa tasks por user
+    @GetMapping("/user")
+    public ResponseEntity<?> getTaskByUser(@RequestParam long userid){
+        return ResponseEntity.status(HttpStatus.OK).body(taskService.getTaskByIdUser(userid));
+    }
+
 
     //atualiza com id e request volta 200
     @PutMapping("/{id}")

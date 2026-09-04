@@ -11,6 +11,7 @@ import com.biolab.todolista.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,6 +95,24 @@ public class TaskService {
         taskRes.setIdUser(task.getUser().getId());
         taskRes.setCategory(task.getCategory().getDescription());
         return taskRes;
+    }
+
+    public List<TaskRes> getTaskByIdUser(long idUser){
+        List<Task> userTasks = taskRepository.findByUserId(idUser);
+        List<TaskRes> response = new ArrayList<>();
+        for (Task userTask : userTasks) {
+            TaskRes taskRes1 = new TaskRes();
+            taskRes1.setTaskId(userTask.getId());
+            taskRes1.setTaskName(userTask.getTitle());
+            taskRes1.setTaskDescription(userTask.getDescription());
+            taskRes1.setPriority(userTask.getPriority());
+            taskRes1.setIsChecked(userTask.getIsChecked());
+            taskRes1.setIdUser(userTask.getUser().getId());
+            taskRes1.setCategory(userTask.getCategory().getDescription());
+            response.add(taskRes1);
+        }
+        return response;
+
     }
 
     //altera igual outros services
